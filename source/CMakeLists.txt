@@ -1,3 +1,6 @@
+add_subdirectory(vendor)
+
+
 add_executable(wire-server
   main.cc
   Socket.cc
@@ -11,4 +14,6 @@ target_compile_options(wire-server
     "-Wextra"
     "-Werror"
 )
+
+target_link_libraries(wire-server PRIVATE nlohmann::json)
 

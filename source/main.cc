@@ -2,6 +2,8 @@
 #include <iterator>
 #include <algorithm>
 
+#include <json.hpp>
+
 #include "Socket.h"
 
 int main() {
