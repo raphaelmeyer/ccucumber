@@ -1,32 +1,45 @@
-#include <iostream>
-#include <iterator>
 #include <algorithm>
+#include <iterator>
+#include <iostream>
 
 #include <json.hpp>
 
 #include "Socket.h"
 
+using nlohmann::json;
+using namespace std::string_literals;
+
 int main() {
-  try {
-    auto socket = Socket::make_socket(3902);
-    socket.bind();
-    socket.listen();
+  auto socket = Socket::make_socket(3902);
+  socket.bind();
+  socket.listen();
 
-    std::cout << "listen ...\n";
+  auto conn = socket.accept();
 
-    auto conn = socket.accept();
-
-    std::cout << "connected\n";
-
+  while(true) {
     std::vector<char> input{};
     input.resize(1024);
     conn.recv(input);
 
-    std::cout << "received ";
-    std::copy(input.begin(), input.end(), std::ostream_iterator<char>(std::cout));
-    std::cout << "\n" << std::flush;
-  } catch(SocketException const & e) {
-    std::cout << "error : " << e.what() << "\n";
+    std::string input_string;
+    std::copy(input.begin(), input.end(), std::back_inserter(input_string));
+
+    auto const request = json::parse(input_string);
+    std::cout << "request : " << request << "\n";
+
+    if(request[0] == "step_matches") {
+      auto const response = R"(["success",[]])"_json;
+      auto const output_string = response.dump();
+      std::vector<char> output{};
+      std::copy(output_string.begin(), output_string.end(), std::back_inserter(output));
+      output.push_back('\n');
+      conn.send(output);
+    } else {
+      auto const error = "[\"error\"]\n"s;
+      std::vector<char> output{};
+      std::copy(error.begin(), error.end(), std::back_inserter(output));
+      conn.send(output);
+    }
   }
 }
 
