@@ -1,0 +1,21 @@
+#!/bin/bash
+
+ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
+
+bundler install --path _build/ruby
+
+mkdir -p ${ROOT}/_build
+cd ${ROOT}/_build
+
+export CC=clang
+export CXX=clang++
+cmake ${ROOT} -G Ninja
+
+cd ${ROOT}
+
+cmake --build _build --target
+
+${ROOT}/_build/source/wire-server &
+cd ${ROOT}/source
+bundler exec cucumber
+
