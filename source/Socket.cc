@@ -91,7 +91,7 @@ size_t Socket::recv(std::vector<char> & buffer) {
   if(received < 0) {
     throw SocketException("receiving data failed");
   }
-  if(received > buffer.size()) {
+  if(static_cast<size_t>(received) > buffer.size()) {
     throw SocketException("received more data than expected");
   }
   buffer.resize(received);
