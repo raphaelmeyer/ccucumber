@@ -1,10 +1,10 @@
 add_executable(wire-server
-  wire-server.cc
+  step_definitions/steps.cc
 )
 
 target_link_libraries(wire-server
   PRIVATE
     ccucumber::settings
-    cc::cucumber
+    ccucumber::main
 )
 

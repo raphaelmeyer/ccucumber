@@ -1,4 +1,4 @@
-#include "ccucumber/WireServer.h"
+#include "WireServer.h"
 
 int main() {
   ccucumber::WireServer wire_server;

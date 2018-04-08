@@ -1,0 +1,3 @@
+done: --tags 'not @wip' --no-snippets
+wip: --wip --tags @wip:2
+

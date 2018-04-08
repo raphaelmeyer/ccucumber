@@ -23,12 +23,26 @@ GEM
     gherkin (5.0.0)
     multi_json (1.13.1)
     multi_test (0.1.2)
+    rspec (3.7.0)
+      rspec-core (~> 3.7.0)
+      rspec-expectations (~> 3.7.0)
+      rspec-mocks (~> 3.7.0)
+    rspec-core (3.7.1)
+      rspec-support (~> 3.7.0)
+    rspec-expectations (3.7.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.7.0)
+    rspec-mocks (3.7.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.7.0)
+    rspec-support (3.7.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   cucumber
+  rspec
 
 BUNDLED WITH
    1.16.1

@@ -19,5 +19,7 @@ cmake --build _build
 
 ${ROOT}/_build/source/features/wire-server &
 cd ${ROOT}/source
-bundler exec cucumber
+
+#bundler exec cucumber -p done
+bundler exec cucumber -p wip
 
