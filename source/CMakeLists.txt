@@ -1,19 +1,5 @@
+add_subdirectory(ccucumber)
+add_subdirectory(features)
 add_subdirectory(vendor)
-
-
-add_executable(wire-server
-  main.cc
-  Socket.cc
-)
-
-target_compile_features(wire-server PRIVATE cxx_std_14)
-
-target_compile_options(wire-server
-  PRIVATE
-    "-Wall"
-    "-Wextra"
-    "-Werror"
-)
-
-target_link_libraries(wire-server PRIVATE nlohmann::json)
+add_subdirectory(settings)
 

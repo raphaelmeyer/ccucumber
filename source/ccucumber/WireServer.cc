@@ -1,15 +1,20 @@
+#include "ccucumber/WireServer.h"
+
+#include "Socket.h"
+
+#include <json.hpp>
+
 #include <algorithm>
 #include <iterator>
 #include <iostream>
 
-#include <json.hpp>
-
-#include "Socket.h"
-
 using nlohmann::json;
 using namespace std::string_literals;
 
-int main() {
+namespace ccucumber
+{
+
+void WireServer::run() {
   auto socket = Socket::make_socket(3902);
   socket.bind();
   socket.listen();
@@ -42,4 +47,6 @@ int main() {
     }
   }
 }
+
+} // namespace
 

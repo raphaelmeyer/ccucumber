@@ -15,9 +15,9 @@ cmake ${ROOT} -G Ninja
 
 cd ${ROOT}
 
-cmake --build _build --target
+cmake --build _build
 
-${ROOT}/_build/source/wire-server &
+${ROOT}/_build/source/features/wire-server &
 cd ${ROOT}/source
 bundler exec cucumber
 
