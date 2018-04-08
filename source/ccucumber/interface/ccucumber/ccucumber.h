@@ -6,9 +6,9 @@
 namespace ccucumber
 {
 
-class Scenario {
+class Steps {
   public:
-    Scenario(std::function<void()>);
+    Steps(std::function<void()>);
 };
 
 class Step {

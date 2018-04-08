@@ -9,8 +9,8 @@ target_include_directories(ccucumber INTERFACE interface)
 add_library(runner SHARED
   Socket.cc
   WireServer.cc
-  Scenario.cc
   Step.cc
+  Steps.cc
 )
 add_library(ccucumber::runner ALIAS runner)
 

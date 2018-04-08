@@ -2,7 +2,7 @@
 
 using namespace ccucumber;
 
-Scenario feedback{[]{
+Steps feedback{[]{
 
   Given("a C++ wire server").action(
       []{}

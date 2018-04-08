@@ -3,7 +3,7 @@
 namespace ccucumber
 {
 
-  Scenario::Scenario(std::function<void()>) {
+  Steps::Steps(std::function<void()>) {
   }
 
 } // namespace
