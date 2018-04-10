@@ -6,17 +6,10 @@
 namespace ccucumber
 {
 
-class Steps {
-  public:
-    Steps(std::function<void()>);
-};
+class Step {};
+using Define = std::initializer_list<Step>;
 
-class Step {
-  public:
-    virtual void action(std::function<void()>) = 0;
-};
-
-Step & Given(std::string);
+Step Given(std::string, std::function<void()>);
 
 } // namespace
 

@@ -2,11 +2,15 @@
 
 using namespace ccucumber;
 
-Steps feedback{[]{
+namespace
+{
 
-  Given("a C++ wire server").action(
-      []{}
-  );
+Define steps {{
+
+Given("a C++ wire server", []{
+})
 
 }};
+
+}
 
