@@ -8,3 +8,7 @@ target_link_libraries(wire-server
     ccucumber::main
 )
 
+target_include_directories(wire-server
+  PRIVATE ../ccucumber
+)
+

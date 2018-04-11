@@ -1,13 +1,19 @@
 #include <ccucumber/ccucumber.h>
 
-using namespace ccucumber;
+#include <WireServer.h>
 
 namespace
 {
 
+ccucumber::WireServer server;
+
+using namespace ccucumber;
+
 Define steps {{
 
 Given("a C++ wire server", []{
+  std::uint16_t port = 2345;
+  server.run(port);
 })
 
 }};

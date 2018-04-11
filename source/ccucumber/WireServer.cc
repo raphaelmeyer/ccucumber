@@ -14,8 +14,8 @@ using namespace std::string_literals;
 namespace ccucumber
 {
 
-void WireServer::run() {
-  auto socket = Socket::make_socket(3902);
+void WireServer::run(std::uint16_t port) {
+  auto socket = Socket::make_socket(port);
   socket.bind();
   socket.listen();
 
