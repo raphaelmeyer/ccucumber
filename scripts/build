@@ -16,6 +16,7 @@ cmake ${ROOT} -G Ninja
 cd ${ROOT}
 
 cmake --build _build
+cmake --build _build --target format
 
 ${ROOT}/_build/source/features/wire-server &
 cd ${ROOT}/source

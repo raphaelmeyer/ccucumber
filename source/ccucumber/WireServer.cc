@@ -5,14 +5,13 @@
 #include <json.hpp>
 
 #include <algorithm>
-#include <iterator>
 #include <iostream>
+#include <iterator>
 
 using nlohmann::json;
 using namespace std::string_literals;
 
-namespace ccucumber
-{
+namespace ccucumber {
 
 void WireServer::run(std::uint16_t port) {
   auto socket = Socket::make_socket(port);
@@ -48,5 +47,4 @@ void WireServer::run(std::uint16_t port) {
   }
 }
 
-} // namespace
-
+} // namespace ccucumber

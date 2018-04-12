@@ -1,35 +1,24 @@
 #include "Socket.h"
 
-#include <unistd.h>
 #include <sys/socket.h>
+#include <unistd.h>
 
-SocketException::SocketException(std::string const & _reason)
-  : reason(_reason)
-{
+SocketException::SocketException(std::string const & _reason) : reason(_reason) {
 }
 
 char const * SocketException::what() const noexcept {
   return reason.c_str();
 }
 
-Socket::Socket()
-  : server_address()
-  , socket(-1)
-{
+Socket::Socket() : server_address(), socket(-1) {
 }
 
-Socket::Socket(Socket && other)
-  : server_address(other.server_address)
-  , socket(other.socket)
-{
+Socket::Socket(Socket && other) : server_address(other.server_address), socket(other.socket) {
   other.server_address = {};
   other.socket = -1;
 }
 
-Socket::Socket(int _socket, sockaddr_in _address)
-  : server_address(_address)
-  , socket(_socket)
-{
+Socket::Socket(int _socket, sockaddr_in _address) : server_address(_address), socket(_socket) {
 }
 
 Socket::~Socket() {
@@ -103,4 +92,3 @@ void Socket::close() {
   socket = -1;
   server_address = {};
 }
-

@@ -2,14 +2,11 @@
 
 #include <cstdint>
 
-namespace ccucumber
-{
+namespace ccucumber {
 
 class WireServer {
-  public:
-    void run(std::uint16_t port);
+public:
+  void run(std::uint16_t port);
 };
 
-} // namespace
-
-
+} // namespace ccucumber

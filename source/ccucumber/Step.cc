@@ -1,11 +1,9 @@
 #include "ccucumber.h"
 
-namespace ccucumber
-{
+namespace ccucumber {
 
 Step Given(std::string, std::function<void()>) {
   return {};
 }
 
-} // namespace
-
+} // namespace ccucumber
