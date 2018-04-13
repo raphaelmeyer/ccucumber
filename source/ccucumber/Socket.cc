@@ -25,6 +25,16 @@ Socket::~Socket() {
   ::close(socket);
 }
 
+Socket & Socket::operator=(Socket && other) {
+  server_address = other.server_address;
+  socket = other.socket;
+
+  other.server_address = {};
+  other.socket = -1;
+
+  return *this;
+}
+
 Socket Socket::make_socket(int _port) {
   auto socket = ::socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
   if(socket < 0) {
@@ -66,6 +76,10 @@ Socket Socket::accept() {
   }
 
   return Socket{accept_socket, client_address};
+}
+
+bool Socket::is_open() const {
+  return socket >= 0;
 }
 
 void Socket::send(std::vector<char> const & buffer) {

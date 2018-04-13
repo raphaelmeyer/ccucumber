@@ -23,11 +23,15 @@ public:
 
   ~Socket();
 
+  Socket & operator=(Socket && other);
+
   static Socket make_socket(int _port);
 
   void bind();
   void listen();
   Socket accept();
+
+  bool is_open() const;
 
   void send(std::vector<char> const & buffer);
   size_t recv(std::vector<char> & buffer);
