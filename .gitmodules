@@ -1,0 +1,3 @@
+[submodule "source/vendor/networking-ts-impl"]
+	path = source/vendor/networking-ts-impl
+	url = https://github.com/chriskohlhoff/networking-ts-impl
