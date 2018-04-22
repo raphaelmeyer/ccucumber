@@ -4,9 +4,13 @@ set -e
 
 ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
 
+cd ${ROOT}
+mkdir -p ${ROOT}/_build
+
 bundler install --path _build/ruby
 
-mkdir -p ${ROOT}/_build
+git submodule update --init --recursive
+
 cd ${ROOT}/_build
 
 export CC=clang

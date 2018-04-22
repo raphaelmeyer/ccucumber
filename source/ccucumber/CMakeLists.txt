@@ -20,6 +20,7 @@ target_link_libraries(runner
   PRIVATE
     ccucumber::settings
     nlohmann::json
+    ts::networking
 )
 
 target_include_directories(runner PRIVATE interface/ccucumber)
