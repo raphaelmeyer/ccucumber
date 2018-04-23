@@ -3,3 +3,7 @@
 
 *.swp
 
+# clion
+/.idea/
+/cmake-build-*/
+
