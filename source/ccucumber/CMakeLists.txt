@@ -1,3 +1,5 @@
+find_package(Threads REQUIRED)
+
 # interface
 
 add_library(ccucumber INTERFACE)
@@ -21,6 +23,7 @@ target_link_libraries(runner
     ccucumber::settings
     nlohmann::json
     ts::networking
+    Threads::Threads
 )
 
 target_include_directories(runner PRIVATE interface/ccucumber)
